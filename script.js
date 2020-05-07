@@ -76,7 +76,7 @@ button.onclick = function getText() {
   if (start === 0) {
     // last line
     const name0 = text.search('name0=');
-    const finN0 = text.substring(name0, name0 + 5);
+    const finN0 = text.substr(name0, 5);
     if (finN0 === 'name0') {
       // run the script
       document.getElementById('done').innerText = result;
