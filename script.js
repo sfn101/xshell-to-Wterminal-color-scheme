@@ -8,66 +8,55 @@ button.onclick = function getText() {
   // get the textarea
   const text = document.getElementById('myText').value;
   // find the value for every color
-  const findVal = [
-    text.search('black='),
-    text.search('red='),
-    text.search('green='),
-    text.search('yellow='),
-    text.search('blue='),
-    text.search('magenta='),
-    text.search('cyan='),
-    text.search('white='),
-    text.search('black[(]b'),
-    text.search('red[(]b'),
-    text.search('green[(]b'),
-    text.search('yellow[(]b'),
-    text.search('blue[(]b'),
-    text.search('magenta[(]b'),
-    text.search('cyan[(]b'),
-    text.search('white[(]b'),
-    text.search('background='),
-    text.search('text=')
-  ];
+  function findVal(colorName) {
+    return text.search(colorName);
+  }
+
   // format the value
-  const blackVal = `"#${text.substr(findVal[0] + 6, 6)}"`;
-  const redVal = `"#${text.substr(findVal[1] + 4, 6)}"`;
-  const greenVal = `"#${text.substr(findVal[2] + 6, 6)}"`;
-  const yellowVal = `"#${text.substr(findVal[3] + 7, 6)}"`;
-  const blueVal = `"#${text.substr(findVal[4] + 5, 6)}"`;
-  const purpleVal = `"#${text.substr(findVal[5] + 8, 6)}"`;
-  const cyanVal = `"#${text.substr(findVal[6] + 5, 6)}"`;
-  const whiteVal = `"#${text.substr(findVal[7] + 6, 6)}"`;
-  const bBlackVal = `"#${text.substr(findVal[8] + 12, 6)}"`;
-  const bRedVal = `"#${text.substr(findVal[9] + 10, 6)}"`;
-  const bGreenVal = `"#${text.substr(findVal[10] + 12, 6)}"`;
-  const bYellowVal = `"#${text.substr(findVal[11] + 13, 6)}"`;
-  const bBlueVal = `"#${text.substr(findVal[12] + 11, 6)}"`;
-  const bPurpleVal = `"#${text.substr(findVal[13] + 14, 6)}"`;
-  const bCyanVal = `"#${text.substr(findVal[14] + 11, 6)}"`;
-  const bWhiteVal = `"#${text.substr(findVal[15] + 12, 6)}"`;
-  const backgroundVal = `"#${text.substr(findVal[16] + 11, 6)}"`;
-  const foregroundVal = `"#${text.substr(findVal[17] + 5, 6)}"`;
+  function formatVal(val, nal) {
+    return `"#${text.substr(val + nal.length, 6)}"`;
+  }
+
+  // keywords variables
+  const black = 'black=';
+  const red = 'red=';
+  const green = 'green=';
+  const yellow = 'yellow=';
+  const blue = 'blue=';
+  const purple = 'magenta=';
+  const cyan = 'cyan=';
+  const white = 'white=';
+  const brightBlack = 'black[(]b';
+  const brightRed = 'red[(]b';
+  const brightGreen = 'green[(]b';
+  const brightYellow = 'yellow[(]b';
+  const brightBlue = 'blue[(]b';
+  const brightPurple = 'magenta[(]b';
+  const brightCyan = 'cyan[(]b';
+  const brightWhite = 'white[(]b';
+  const background = 'background=';
+  const foreground = 'text=';
   // the result table
   const result = `,{
     "name": "${nameVal}",
-    "black": ${blackVal},
-    "red": ${redVal},
-    "green": ${greenVal},
-    "yellow": ${yellowVal},
-    "blue": ${blueVal},
-    "purple": ${purpleVal},
-    "cyan": ${cyanVal},
-    "white": ${whiteVal},
-    "brightBlack": ${bBlackVal},
-    "brightRed": ${bRedVal},
-    "brightGreen": ${bGreenVal},
-    "brightYellow": ${bYellowVal},
-    "brightBlue": ${bBlueVal},
-    "brightPurple": ${bPurpleVal},
-    "brightCyan": ${bCyanVal},
-    "brightWhite": ${bWhiteVal},
-    "background": ${backgroundVal},
-    "foreground": ${foregroundVal}
+    "black": ${formatVal(findVal(black), black)},
+    "red": ${formatVal(findVal(red), red)},
+    "green": ${formatVal(findVal(green), green)},
+    "yellow": ${formatVal(findVal(yellow), yellow)},
+    "blue": ${formatVal(findVal(blue), blue)},
+    "purple": ${formatVal(findVal(purple), purple)},
+    "cyan": ${formatVal(findVal(cyan), cyan)},
+    "white": ${formatVal(findVal(white), black)},
+    "brightBlack": ${formatVal(findVal(brightBlack), brightBlack)},
+    "brightRed": ${formatVal(findVal(brightRed), brightRed)},
+    "brightGreen": ${formatVal(findVal(brightGreen), brightGreen)},
+    "brightYellow": ${formatVal(findVal(brightYellow), brightYellow)},
+    "brightBlue": ${formatVal(findVal(brightBlue), brightBlue)},
+    "brightPurple": ${formatVal(findVal(brightPurple), brightPurple)},
+    "brightCyan": ${formatVal(findVal(brightCyan), brightCyan)},
+    "brightWhite": ${formatVal(findVal(brightWhite), brightWhite)},
+    "background": ${formatVal(findVal(background), background)},
+    "foreground": ${formatVal(findVal(foreground), foreground)}
     }
     `;
   // check the text input if it correct
