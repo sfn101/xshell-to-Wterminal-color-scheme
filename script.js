@@ -18,45 +18,68 @@ button.onclick = function getText() {
   }
 
   // keywords variables
-  const black = 'black=';
-  const red = 'red=';
-  const green = 'green=';
-  const yellow = 'yellow=';
-  const blue = 'blue=';
-  const purple = 'magenta=';
-  const cyan = 'cyan=';
-  const white = 'white=';
-  const brightBlack = 'black[(]b';
-  const brightRed = 'red[(]b';
-  const brightGreen = 'green[(]b';
-  const brightYellow = 'yellow[(]b';
-  const brightBlue = 'blue[(]b';
-  const brightPurple = 'magenta[(]b';
-  const brightCyan = 'cyan[(]b';
-  const brightWhite = 'white[(]b';
-  const background = 'background=';
-  const foreground = 'text=';
+  const keyW = {
+    black: 'black=',
+    red: 'red=',
+    green: 'green=',
+    yellow: 'yellow=',
+    blue: 'blue=',
+    purple: 'magenta=',
+    cyan: 'cyan=',
+    white: 'white=',
+    brightBlack: 'black[(]bold',
+    brightRed: 'red[(]bold',
+    brightGreen: 'green[(]bold',
+    brightYellow: 'yellow[(]bold',
+    brightBlue: 'blue[(]bold',
+    brightPurple: 'magenta[(]bold',
+    brightCyan: 'cyan[(]bold',
+    brightWhite: 'white[(]bold',
+    background: 'background=',
+    foreground: 'text='
+  };
+  // the values for the colors
+  const cVal = {
+    black: formatVal(findVal(keyW.black), keyW.black),
+    red: formatVal(findVal(keyW.red), keyW.red),
+    green: formatVal(findVal(keyW.green), keyW.green),
+    yellow: formatVal(findVal(keyW.yellow), keyW.yellow),
+    blue: formatVal(findVal(keyW.blue), keyW.blue),
+    purple: formatVal(findVal(keyW.purple), keyW.purple),
+    cyan: formatVal(findVal(keyW.cyan), keyW.cyan),
+    white: formatVal(findVal(keyW.white), keyW.black),
+    brightBlack: formatVal(findVal(keyW.brightBlack), keyW.brightBlack),
+    brightRed: formatVal(findVal(keyW.brightRed), keyW.brightRed),
+    brightGreen: formatVal(findVal(keyW.brightGreen), keyW.brightGreen),
+    brightYellow: formatVal(findVal(keyW.brightYellow), keyW.brightYellow),
+    brightBlue: formatVal(findVal(keyW.brightBlue), keyW.brightBlue),
+    brightPurple: formatVal(findVal(keyW.brightPurple), keyW.brightPurple),
+    brightCyan: formatVal(findVal(keyW.brightCyan), keyW.brightCyan),
+    brightWhite: formatVal(findVal(keyW.brightWhite), keyW.brightWhite),
+    background: formatVal(findVal(keyW.background), keyW.background),
+    foreground: formatVal(findVal(keyW.foreground), keyW.foreground)
+  };
   // the result table
   const result = `,{
     "name": "${nameVal}",
-    "black": ${formatVal(findVal(black), black)},
-    "red": ${formatVal(findVal(red), red)},
-    "green": ${formatVal(findVal(green), green)},
-    "yellow": ${formatVal(findVal(yellow), yellow)},
-    "blue": ${formatVal(findVal(blue), blue)},
-    "purple": ${formatVal(findVal(purple), purple)},
-    "cyan": ${formatVal(findVal(cyan), cyan)},
-    "white": ${formatVal(findVal(white), black)},
-    "brightBlack": ${formatVal(findVal(brightBlack), brightBlack)},
-    "brightRed": ${formatVal(findVal(brightRed), brightRed)},
-    "brightGreen": ${formatVal(findVal(brightGreen), brightGreen)},
-    "brightYellow": ${formatVal(findVal(brightYellow), brightYellow)},
-    "brightBlue": ${formatVal(findVal(brightBlue), brightBlue)},
-    "brightPurple": ${formatVal(findVal(brightPurple), brightPurple)},
-    "brightCyan": ${formatVal(findVal(brightCyan), brightCyan)},
-    "brightWhite": ${formatVal(findVal(brightWhite), brightWhite)},
-    "background": ${formatVal(findVal(background), background)},
-    "foreground": ${formatVal(findVal(foreground), foreground)}
+    "black": ${cVal.black},
+    "red": ${cVal.red},
+    "green": ${cVal.green},
+    "yellow": ${cVal.yellow},
+    "blue": ${cVal.blue},
+    "purple": ${cVal.purple},
+    "cyan": ${cVal.cyan},
+    "white": ${cVal.white},
+    "brightBlack": ${cVal.brightBlack},
+    "brightRed": ${cVal.brightRed},
+    "brightGreen": ${cVal.brightGreen},
+    "brightYellow": ${cVal.brightYellow},
+    "brightBlue": ${cVal.brightBlue},
+    "brightPurple": ${cVal.brightPurple},
+    "brightCyan": ${cVal.brightCyan},
+    "brightWhite": ${cVal.brightWhite},
+    "background": ${cVal.background},
+    "foreground": ${cVal.foreground}
     }
     `;
   // check the text input if it correct
