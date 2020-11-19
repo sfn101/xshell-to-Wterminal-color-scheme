@@ -58,3 +58,4 @@ count=1
 "foreground": "#c5c8c6"
 }
 ```
+https://sfn101.github.io/xshell-to-Wterminal-color-scheme/
